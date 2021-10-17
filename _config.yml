@@ -102,11 +102,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Skipancho"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "지식을 탐구하는 모험가"
+  location         : "Republic of Korea"
+  email            : "ctg1770a@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
