@@ -24,7 +24,7 @@ description              : "각종 지식을 저장하는 블로그"
 url                      : "https://skipancho.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "Skipancho/skipancho.github.com"
-teaser                   : # 티져 이미지
+teaser                   : "/assets/images/teaser.jpg"  # 티져 이미지
 logo                     : # 로고 #"/assets/images/senior-couple-4723737_640.jpg"
 masthead_title           : "Skipancho's Blog" # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : true
@@ -100,17 +100,17 @@ analytics:
     anonymize_ip         : # true, false (default)
 
 
-# Site Author
+# 프로필
 author:
   name             : "Skipancho"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/profile.jpg"  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "지식을 탐구하는 모험가"
   location         : "Republic of Korea"
   email            : "ctg1770a@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "ctg1770a@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
