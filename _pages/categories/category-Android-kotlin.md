@@ -7,5 +7,5 @@ sidebar_main: true
 ---
 
 
-{% assign posts = site.categories.Android(Kotlin) %}
+{% assign posts = site.categories["Android(Kotlin)"] %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
