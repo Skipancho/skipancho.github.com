@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "ko-KR"
 title                    : "전설의 모험가 스키판쵸"
-title_separator          : "&#124" # 타이틀 사이 구분자 <title>Welcome to Jekyll | Minimal Mistakes</title> 해당 형식으로 들어갑니다.
+title_separator          : "&#124;" # 타이틀 사이 구분자 <title>Welcome to Jekyll | Minimal Mistakes</title> 해당 형식으로 들어갑니다.
 subtitle                 : "Version 1.0"  # 타이틀 아래에 나올 작은 글씨
 name                     : "Skipancho"
 description              : "각종 지식을 저장하는 블로그"
@@ -138,7 +138,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/Skipancho"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
