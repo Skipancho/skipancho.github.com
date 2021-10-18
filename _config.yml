@@ -106,7 +106,7 @@ author:
   avatar           : "/assets/images/profile.jpg"  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "지식을 탐구하는 모험가"
   location         : "Republic of Korea"
-  email            : "ctg1770a@gmail.com"
+  
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -122,7 +122,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/Skipancho"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
