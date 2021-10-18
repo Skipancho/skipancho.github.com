@@ -1,7 +1,7 @@
 ---
 title: "Android(Java)"
 layout: archive
-permalink: categories/Android(Java)
+permalink: categories/android-java
 author_profile: true
 sidebar_main: true
 ---

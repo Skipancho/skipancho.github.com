@@ -1,7 +1,7 @@
 ---
 title: "Android(Kotlin)"
 layout: archive
-permalink: categories/Android(Kotlin)
+permalink: categories/android-kotlin
 author_profile: true
 sidebar_main: true
 ---

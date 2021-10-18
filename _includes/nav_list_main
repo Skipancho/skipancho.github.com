@@ -17,14 +17,14 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Android(Java)" %}
-                        <li><a href="/categories/Android(Java)" class="">Android(Java) ({{category[1].size}})</a></li>
+                        <li><a href="/categories/android-java" class="">Android(Java) ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Android(Kotlin)" %}
-                        <li><a href="/categories/Android(Kotlin)" class="">Android(Kotlin) ({{category[1].size}})</a></li>
+                        <li><a href="/categories/android-kotlin" class="">Android(Kotlin) ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
