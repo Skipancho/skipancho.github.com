@@ -16,23 +16,23 @@
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Android_java" %}
-                        <li><a href="/categories/Android_java" class="">Android(java) ({{category[1].size}})</a></li>
+                    {% if category[0] == "Android(Java)" %}
+                        <li><a href="/categories/Android(Java)" class="">Android(Java) ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Android_kotlin" %}
-                        <li><a href="/categories/Android_kotlin" class="">Android(kotlin) ({{category[1].size}})</a></li>
+                    {% if category[0] == "Android(Kotlin)" %}
+                        <li><a href="/categories/Android(Kotlin)" class="">Android(Kotlin) ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
-        <span class="nav__sub-title">Category Test</span>
+        <span class="nav__sub-title">etc</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "test" %}
-                        <li><a href="/categories/test" class="">test_카테고리({{category[1].size}})</a></li>
+                        <li><a href="/categories/test" class="">test({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
