@@ -1,10 +1,10 @@
 ---
 layout: single
-title: "[Android(java)] 개발 시작하기 "
+title: "[Android(Java)] 개발 시작하기 "
 categories: 
-    - Android_java
+    - Android(Java)
 tags:
-    - [Android, java]
+    - [Android, Java]
 ---
 
 ## 1.안드로이드 스튜디오 설치
