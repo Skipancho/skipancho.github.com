@@ -12,7 +12,7 @@
       </li>
       <li>
         <!--span 태그로 카테고리들을 크게 분류-->
-        <span class="nav__sub-title">Android</span>
+        <span class="nav__sub-title">안드로이드</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
                 {% for category in site.categories %}
@@ -28,7 +28,16 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-        <span class="nav__sub-title">etc</span>
+        <span class="nav__sub-title">코딩테스트</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "CodingTest" %}
+                        <li><a href="/categories/coding-test" class="">코테 공부 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        <span class="nav__sub-title">기타</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "test" %}
