@@ -146,16 +146,76 @@ data class State(
 ```
 Pair를 이용해도 상관 없으나 간지가 안나고 좀더 직관적으로 상태를 확인하기 위해 해당 클래스를 만들어 사용하기로 했다.
 
-다음의 함수는 플레이어의 위치 이동을 담당하는 함수로 적당히 반복문으로 돌리기 위한 n (enum을 사용해도 좋았겠지만 그건 또 귀찮아서 ㅎㅎ), 플레이어의 현재 위치를 나타내는 (i,j), 현재 발판 상태를 나타내는 board를 받아 예외없이 이동할 수 있도록 하며 이동할 수 없을 시 -1을 반환해 이동할 수 없음을 나타낸다.
+다음은 enum 클래스를 통해 플래이어의 이동 방향을 정의하였다.
+이것도 뭐 굳이 필요는 없지만 직관성과 간지를 위한 준비랄까..?
 
 ```kotlin
-private fun moveLocation(n : Int, i : Int , j : Int , board: Array<IntArray>) : IntArray =
-    if (n==0 && i > 0 && board[i-1][j] == 1) intArrayOf(i-1,j)
-    else if (n==1 && i < board.lastIndex && board[i+1][j] == 1) intArrayOf(i+1,j)
-    else if (n==2 && j > 0 && board[i][j-1] == 1) intArrayOf(i,j-1)
-    else if (n==3 && j < board[i].lastIndex && board[i][j+1] == 1) intArrayOf(i,j+1)
-    else intArrayOf(-1)
+enum class Direction{
+    UP, DOWN, LEFT, RIGHT
+}
 ```
 
+다음의 함수는 플레이어의 위치 이동을 담당하는 함수로 플레이어의 이동 방향(d), 플레이어의 현재 위치 (i,j), 현재 발판 상태(board)를 받아 예외없이 이동할 수 있도록 하며 이동할 수 없을 시 -1을 반환해 이동할 수 없음을 나타낸다.
 
+```kotlin
+private fun moveLocation(d : Direction, i : Int , j : Int , board: Array<IntArray>) : IntArray =
+    if (d==Direction.UP && i > 0 && board[i-1][j] == 1) intArrayOf(i-1,j)
+    else if (d==Direction.DOWN && i < board.lastIndex && board[i+1][j] == 1) intArrayOf(i+1,j)
+    else if (d==Direction.LEFT && j > 0 && board[i][j-1] == 1) intArrayOf(i,j-1)
+    else if (d==Direction.RIGHT && j < board[i].lastIndex && board[i][j+1] == 1) intArrayOf(i,j+1)
+    else intArrayOf(-1)
+```
+문제 해결을 위한 재귀 함수의 진행 순서는 다음과 같다.
+
+1. 순서 확인(A 차례인지 B 차례인지 확인)
+2. 현재 위치에 발판이 있는지 확인, 없다면 현재 cnt와 승리정보(다른 플레이어 승)를 반환
+3. 현재 발판을 제거
+4. 갈 수 있는 모든 방향으로 이동 (재귀 함수 호출)
+5. 현재 차례인 플레이어의 승패 확인
+    - 승일 경우 이동 횟수의 최솟값을 갱신
+    - 패일 경우 이동 횟수의 최댓값을 갱신
+6. 최대, 최솟값 확인
+    - 초기 설정값과 같다면 갈 수 있는 방향이 없는 것이므로 상대 승 현재 이동 횟수 반환
+    - 최솟값이 갱신되어 있다면 현재 플레이어 승 최솟값 반환
+    - 최댓값이 갱신되어 있다면 상대 플레이어 승 최댓값 반환
+
+```kotlin
+private fun move(board : Array<IntArray>, aloc: IntArray, bloc: IntArray, cnt : Int) : State {
+    val a_turn :Boolean = (cnt%2 == 0)
+    val i = if (a_turn) aloc[0] else bloc[0]
+    val j = if (a_turn) aloc[1] else bloc[1]
+    var min = 25
+    var max = 0
+    val newBoard = board.map { it.clone() }.toTypedArray()
+
+    if (board[i][j]==0){
+        return State(cnt, !a_turn)
+    }
+
+    newBoard[i][j] = 0
+    var state : State
+    for (d in Direction.values()){
+        val movePoint = moveLocation(d,i,j,newBoard)
+        if (movePoint[0]==-1) continue
+        state = if (a_turn){
+            move(newBoard,movePoint,bloc,cnt + 1)
+        }else{
+            move(newBoard,aloc,movePoint,cnt + 1)
+        }
+        val check = if (a_turn) state.winA else !state.winA
+        if (check){
+            min = minOf(min,state.cnt)
+        }else{
+            max = maxOf(max,state.cnt)
+        }
+    }
+    return if (min == 25 && max == 0) State(cnt, !a_turn)
+    else if (min != 25) State(min, a_turn)
+    else State(max, !a_turn)
+}
+```
+
+이제 위의 함수를 호출하고 그 결과값의 cnt를 반환하는 것으로 문제 해결
+
+최종 코드 : [GitHub_사라지는 발판 풀이](https://github.com/Skipancho/CodingTest_study/blob/master/src/main/kotlin/lv3/disappearing_floor/Disappearing_floor.kt)
 
