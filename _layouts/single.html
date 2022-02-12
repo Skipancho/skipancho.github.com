@@ -73,7 +73,14 @@ layout: default
       {% include comments.html %}
     {% endif %}
   </article>
-
+  <div class="page__related">
+    {% assign cat = page.categories[0] %}
+    {% assign cat_list = site.categories[cat] %}
+    <h4 class="page__related-title">{{cat}} 작성 글</h4>
+      {% for post in cat_list %}
+          {% include archive-single3.html %}
+      {% endfor %}
+  </div>
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     <div class="page__related">
@@ -82,7 +89,6 @@ layout: default
           {% include archive-single3.html %}
         {% endfor %}
     </div>
-  {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
   {% elsif page.id and page.related %}
     <div class="page__related">
       <h4 class="page__related-title">{{ "최근 글" }}</h2>
