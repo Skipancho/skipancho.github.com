@@ -61,6 +61,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "DesignPattern" %}
+                        <li><a href="/categories/design-pattern" class="">디자인 패턴({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "GitHub" %}
                         <li><a href="/categories/github" class="">GitHub({{category[1].size}})</a></li>
                     {% endif %}
