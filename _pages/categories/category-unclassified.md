@@ -1,11 +1,11 @@
 ---
-title: "테스트 카테고리"
+title: "미분류"
 layout: archive
-permalink: categories/test
+permalink: categories/unclassified
 author_profile: true
 sidebar_main: true
 ---
 
 
-{% assign posts = site.categories.test %}
+{% assign posts = site.categories.unclassified %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
